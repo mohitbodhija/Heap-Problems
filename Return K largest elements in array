@@ -1,0 +1,18 @@
+#User function Template for python3
+import heapq
+class Solution:
+    #Function to return k largest elements from an array.
+    def kLargest(self,li,n,k):
+        # code here
+        heap = []
+        size =0
+        
+        for i in li:
+            heapq.heappush(heap,i)
+            size = size +1
+            if(size>k):
+                heapq.heappop(heap)
+                size = size-1
+        heap.sort()
+        heap.reverse()
+        return heap
