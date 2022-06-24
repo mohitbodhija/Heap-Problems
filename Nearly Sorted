@@ -1,0 +1,20 @@
+import heapq
+class Solution:
+    
+    #Function to return the sorted array.
+    def nearlySorted(self,a,n,k):
+        heap = []
+        new = []
+        size = 0
+       
+        
+        for i in a:
+            heapq.heappush(heap,i)
+            size = size +1
+            if(size>k):
+                new.append(heapq.heappop(heap))
+                size = size-1
+        while size>0:
+            new.append(heapq.heappop(heap))
+            size = size -1
+        return new
