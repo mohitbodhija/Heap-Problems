@@ -1,0 +1,19 @@
+import heapq
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        ans = []
+        d = dict()
+        
+        for num in nums:
+            if num in d:
+                d[num] +=1
+            else:
+                d[num] =1
+        
+        for key,val in d.items():
+            heappush(ans,[val,key])
+            if len(ans)>k:
+                heappop(ans)
+            
+        return [key for value,key in ans]
+            
